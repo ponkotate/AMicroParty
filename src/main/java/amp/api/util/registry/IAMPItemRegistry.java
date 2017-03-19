@@ -11,20 +11,9 @@ import amp.api.menu.item.IAMPItem.IAMPItemBuilder;
 
 public interface IAMPItemRegistry extends IAMPRegistry<IAMPItem> {
 
-  public enum NBT {
-    ITEM_ID("amp_itemid"), COMMAND("command"), INDEX("index");
-
-    private final String tag;
-
-    private NBT(String tag) {
-      this.tag = tag;
-    }
-
-    public String tag() {
-      return this.tag;
-    }
-
-  }
+  static String NBT_ITEM_ID = "amp_itemid";
+  static String NBT_COMMAND = "command";
+  static String NBT_INDEX = "index";
 
   IAMPItemBuilder newItem(Material material, short damage);
 

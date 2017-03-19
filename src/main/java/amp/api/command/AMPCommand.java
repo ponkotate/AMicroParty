@@ -12,10 +12,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 
 import amp.api.AMicroPartyAPI;
-import amp.api.util.Delimiter;
 import amp.api.util.Language;
 
 public abstract class AMPCommand {
+
+  public static final String DELIMITER_PERMISSION = ".";
+  public static final String DELIMITER_USAGE = " ";
 
   public static final String ERROR_INSUFFICIENT_PERMISSION = "error.insufficient_permission";
   public static final String ERROR_PLAYER_ONLY = "error.player_only";
@@ -59,7 +61,7 @@ public abstract class AMPCommand {
   public abstract boolean onCommand(CommandSender sender, String label, String[] args);
 
   public Permission getPermission() {
-    String name = this.getParents().map(command -> command.getName()).collect(Collectors.joining(Delimiter.PERMISSION.demiliter()));
+    String name = this.getParents().map(command -> command.getName()).collect(Collectors.joining(DELIMITER_PERMISSION));
     return Optional.ofNullable(Bukkit.getPluginManager().getPermission(name))
         .orElse(new Permission(name, AMicroPartyAPI.getPlugin().getTranslator().translate(Language.ENGLISH, this.getDescription()), Permission.DEFAULT_PERMISSION));
   }
@@ -69,7 +71,7 @@ public abstract class AMPCommand {
   public abstract Optional<String> getUsage(Player player);
 
   public String getFormattedUsage(Player player) {
-    String name = this.getParents().map(c -> c.getName()).collect(Collectors.joining(Delimiter.USAGE.demiliter()));
+    String name = this.getParents().map(c -> c.getName()).collect(Collectors.joining(DELIMITER_USAGE));
     StringBuilder builder = new StringBuilder("/").append(name);
     this.getUsage(player).ifPresent(usage -> builder.append(" ").append(usage));
     return builder.append(" : ").append(AMicroPartyAPI.getPlugin().getTranslator().translate(player, this.getDescription())).toString();
