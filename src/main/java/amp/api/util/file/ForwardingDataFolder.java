@@ -31,7 +31,7 @@ public abstract class ForwardingDataFolder implements IDataFolder {
   }
 
   @Override
-  public Stream<? extends IDataFile> getDataFile(File file) {
+  public Optional<? extends IDataFile> getDataFile(File file) {
     return this.delegate().getDataFile(file);
   }
 

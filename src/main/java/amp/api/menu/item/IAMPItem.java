@@ -15,33 +15,23 @@ import amp.api.menu.IAMPMenu;
 
 public interface IAMPItem extends ConfigurationSerializable {
 
-  public enum TagItem {
-
-    MATERIAL("material"), DAMAGE("damage"), METADATA("meta");
-
-    private final String tag;
-
-    private TagItem(String tag) {
-      this.tag = tag;
-    }
-
-    public String tag() {
-      return this.tag;
-    }
-
-  }
-
   boolean clickItem(IAMPMenu menu, ItemStack itemstack, Player player, InventoryAction action, ClickType clickType);
 
   void updateItemStack(Player player, ItemStack itemstack);
 
-  ItemStack toItemStack(int amount);
+  default ItemStack toItemStack(int amount) {
+    return this.toItemStack(this, amount);
+  }
 
-  public interface IAMPItemBuilder {
+  ItemStack toItemStack(IAMPItem original, int amount);
+
+  interface IAMPItemBuilder {
 
     IAMPItemBuilder setMaterial(Material material);
 
     IAMPItemBuilder setDamage(short damage);
+
+    IAMPItemBuilder setItemMeta(ItemMeta meta);
 
     Optional<ItemMeta> getItemMeta();
 

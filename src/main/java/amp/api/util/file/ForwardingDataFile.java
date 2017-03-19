@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import org.bukkit.Color;
 import org.bukkit.OfflinePlayer;
@@ -138,6 +140,16 @@ public abstract class ForwardingDataFile implements IDataFile {
   @Override
   public ConfigurationSection createSection(String path, Map<?, ?> map) {
     return this.delegate().createSection(path, map);
+  }
+
+  @Override
+  public Optional<String> getPath(Object obj) {
+    return this.delegate().getPath(obj);
+  }
+
+  @Override
+  public Stream<String> getPaths() {
+    return this.delegate().getPaths();
   }
 
   @Override

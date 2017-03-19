@@ -12,7 +12,7 @@ import amp.api.menu.item.IAMPItem.IAMPItemBuilder;
 public interface IAMPItemRegistry extends IAMPRegistry<IAMPItem> {
 
   public enum NBT {
-    ITEM_ID("AMPItemId"), COMMAND("Command"), INDEX("Index");
+    ITEM_ID("amp_itemid"), COMMAND("command"), INDEX("index");
 
     private final String tag;
 

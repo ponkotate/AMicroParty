@@ -14,7 +14,7 @@ public interface IDataFolder {
 
   void load();
 
-  Stream<? extends IDataFile> getDataFile(File file);
+  Optional<? extends IDataFile> getDataFile(File file);
 
   Stream<? extends IDataFile> getDataFiles();
 
