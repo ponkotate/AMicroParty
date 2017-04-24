@@ -68,12 +68,15 @@ public abstract class AMPCommand {
 
   public abstract String getDescription();
 
-  public abstract Optional<String> getUsage(Player player);
+  public abstract String getUsage(Player player);
 
   public String getFormattedUsage(Player player) {
     String name = this.getParents().map(c -> c.getName()).collect(Collectors.joining(DELIMITER_USAGE));
     StringBuilder builder = new StringBuilder("/").append(name);
-    this.getUsage(player).ifPresent(usage -> builder.append(" ").append(usage));
+    String usage = this.getUsage(player);
+
+    if (usage != null && usage.length() > 0)
+      builder.append(" ").append(usage);
     return builder.append(" : ").append(AMicroPartyAPI.getPlugin().getTranslator().translate(player, this.getDescription())).toString();
   }
 

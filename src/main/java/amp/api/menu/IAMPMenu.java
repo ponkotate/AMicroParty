@@ -1,6 +1,5 @@
 package amp.api.menu;
 
-import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryAction;
@@ -8,7 +7,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
-public interface IAMPMenu extends Inventory, InventoryHolder, ConfigurationSerializable {
+public interface IAMPMenu extends Inventory, InventoryHolder {
 
   boolean openInventory(Player player);
 

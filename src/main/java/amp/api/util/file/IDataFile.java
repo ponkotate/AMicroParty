@@ -2,23 +2,18 @@ package amp.api.util.file;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.Map;
 
-import org.bukkit.configuration.Configuration;
-
-public interface IDataFile extends Configuration {
+public interface IDataFile extends Map<String, Object>, IDataRegistry {
 
   File getFile();
 
-  void load();
+  void readFromFile();
 
-  void save();
+  void writeToFile();
 
   boolean backup() throws IOException;
 
-  Optional<String> getPath(Object obj);
-
-  Stream<String> getPaths();
+  Object put(String[] keyArray, Object value);
 
 }

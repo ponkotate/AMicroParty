@@ -1,7 +1,6 @@
 package amp.api.menu.item;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.bukkit.Material;
@@ -32,11 +31,6 @@ public abstract class ForwardingAMPItem implements IAMPItem {
   @Override
   public ItemStack toItemStack(IAMPItem original, int amount) {
     return this.delegate().toItemStack(original, amount);
-  }
-
-  @Override
-  public Map<String, Object> serialize() {
-    return this.delegate().serialize();
   }
 
   @Override

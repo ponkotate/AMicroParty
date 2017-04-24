@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.bukkit.Material;
-import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryAction;
@@ -13,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import amp.api.menu.IAMPMenu;
 
-public interface IAMPItem extends ConfigurationSerializable {
+public interface IAMPItem {
 
   boolean clickItem(IAMPMenu menu, ItemStack itemstack, Player player, InventoryAction action, ClickType clickType);
 

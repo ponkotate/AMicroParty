@@ -3,7 +3,6 @@ package amp.api.menu;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Map;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -260,11 +259,6 @@ public abstract class ForwardingAMPMenu implements IAMPMenu {
   @Override
   public IAMPMenu copy() {
     return this.delegate().copy();
-  }
-
-  @Override
-  public Map<String, Object> serialize() {
-    return this.delegate().serialize();
   }
 
 }
