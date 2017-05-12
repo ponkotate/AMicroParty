@@ -9,16 +9,16 @@ import amp.api.menu.item.IAMPItem.IAMPItemBuilder;
 
 public final class AMicroPartyAPI {
 
-  private static final AMPPluginManager<IAMicroParty> Manager = new AMPPluginManager<IAMicroParty>();
+  private static final AMPPluginManager<IAMicroParty> MANAGER = new AMPPluginManager<IAMicroParty>();
 
   private AMicroPartyAPI() {}
 
   public static AMPPluginManager<IAMicroParty> getRegistry() {
-    return Manager;
+    return MANAGER;
   }
 
   public static IAMicroParty getPlugin() {
-    return Manager.get();
+    return MANAGER.get();
   }
 
   public static IAMPItemBuilder newItem(Material material, short damage) {

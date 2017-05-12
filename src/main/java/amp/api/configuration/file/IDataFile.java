@@ -1,10 +1,11 @@
-package amp.api.util.file;
+package amp.api.configuration.file;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
-public interface IDataFile extends Map<String, Object>, IDataRegistry {
+import org.bukkit.configuration.Configuration;
+
+public interface IDataFile extends Configuration, IDataRegistry {
 
   File getFile();
 
@@ -13,7 +14,5 @@ public interface IDataFile extends Map<String, Object>, IDataRegistry {
   void writeToFile();
 
   boolean backup() throws IOException;
-
-  Object put(String[] keyArray, Object value);
 
 }

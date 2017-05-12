@@ -1,4 +1,4 @@
-package amp.api.util.file;
+package amp.api.configuration.file;
 
 import java.io.File;
 import java.util.stream.Stream;

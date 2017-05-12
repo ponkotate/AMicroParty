@@ -8,6 +8,9 @@ import org.bukkit.entity.Player;
 
 public interface ITranslator {
 
+  static final String REGEX = "\\.";
+  static final String REPLACEMENT = "_";
+
   void addDefault(Language lang, String key, String value);
 
   String translate(Player player, String key);
